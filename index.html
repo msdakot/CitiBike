@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8' />
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+
+    <!-- CSS Imports -->
+    <link rel="stylesheet" href="css/leaflet.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <!-- <script src="../dist/leaflet-svg-shape-markers.min.js"></script> -->
+
+    <!-- Mapbox GL -->
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet' />
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
+
+
+    <style>
+    #reset {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 999;
+            color: #e6f0f0;
+            text-decoration: none;
+        }
+    </style>
+
+  </head>
+
+  <body>
+    <a id="reset" class = "Rbutton" href="#"> reset </a>
+
+    <!-- Header -->
+    <div class="header">
+      <h2 >Bike share stats </h2>
+    </div>
+
+    <!-- Map -->
+    <div id="map" class="map"></div>
+
+
+    <!-- Sidebar -->
+
+    <div class="sidebar">
+
+      <div id="intro">
+
+          <div id="sidebar_top">
+            <h2 class="Slide-title" >Bikeshare system Status, <br> Trip analysis, <br>and <br> District analysis, <br>of CitiBike</h2>
+            <p class="Slide-text">
+              <a id="data-link" href="https://msdakot.github.io" target="_blank">by Dhruvi</a>
+            </p>
+            <p>
+              All statistical computation were done in R.
+            </p>
+          </div>
+
+          <div id= "sidebar-bottom">
+            <button class="button" id="previous">
+              Previous
+            </button>
+            <button class="button" id="next">
+              Next
+            </button>
+            <h3 id="data-attribution">
+              <a id="data-link" href="https://urbica.github.io/bikes/" target="_blank">Data: Moscow Public Bikes</a>
+              <a id="data-link" href="https://www.openstreetmap.org/relation/2555133" target="_blank">Map: OpenStreetMap</a>
+              <a id="data-link" href="https://docs.mapbox.com/mapbox-gl-js/api/" target="_blank">Rendering: Mapbox-GL</a>
+            </h3>
+          </div>
+
+      </div>
+
+    </div>
+
+    <div class= "legend">
+      <ul class = "legend" id="legend_gen">
+        <li><span style='background-color:#400D2A;'></span>CitiBike Stations</li>
+      </ul>
+
+      <ul class="legend" id="legend_Tot" style="display: none;">
+        <li><span style='background-color:#FF8984;'></span>Total Stats</li>
+      </ul>
+
+      <ul class="legend" id="legend_Dir" style="display: none;">
+       <li><span style='background-color:#FF9000;'></span>Outbound Trips</li>
+       <li><span style='background-color:#C70039;'></span>Inbound Trips</li>
+      </ul>
+
+      <ul class="legend" id="legend_Roun" style="display: none;">
+        <li><span style='background-color:#400D2A;'></span>Round Trips</li>
+        <!--ring image reference  -->
+      </ul>
+
+     <ul class="legend" id="legend_Dist" style="display: none;">
+       <li><span style='background-color:#F2F2F2;'></span>Less than 1000</li>
+       <li><span style='background-color:#93BFAF;'></span>1000-5000</li>
+       <li><span style='background-color:#6DA67B;'></span>5000-20000</li>
+       <li><span style='background-color:#6DA6A0;'></span>20000-100000</li>
+       <li><span style='background-color:#192E40;'></span>more than 1M rides</li>
+       <!-- image reference -->
+     </ul>
+
+    </div>
+
+    <!-- Javascript Imports -->
+    <script src="js/leaflet.js"></script>
+    <!-- <script src="js/leaflet-svg-shape-markers.js"></script> -->
+    <script src="js/underscore.js"></script>
+    <script src="js/jquery-2.2.0.js"></script>
+    <script src="js/Slidefunctions.js"></script>
+    <script src="js/sidebartext.js"></script>
+    <script src="js/main.js"></script>
+    <!-- Javascript Code -->
+    <script>
+      var map = L.map('map', {
+        center: [40.738, -74.060],
+        zoom: 13,
+        zoomControl: false
+      });
+
+      var zoomControl = L.control.zoom({position: 'topright'}).addTo(map);
+
+      // var Stamen_TonerLite = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
+      //   attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+      //   subdomains: 'abcd',
+      //   minZoom: 0,
+      //   maxZoom: 20,
+      //   ext: 'png'
+      // }).addTo(map);
+
+      var mapbox_Lite = L.tileLayer('https://api.mapbox.com/styles/v1/dhruvs04/cjtehgcvh31ym1fleyjaq7cu3/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoiZGhydXZzMDQiLCJhIjoiY2psZWkxem45MDZuNjNrcWhkZDMxdXo5byJ9.O_pXu61MgF8AfZiWLaR5pA', {
+         minZoom: 0,
+         maxZoom: 20,
+      }).addTo(map);
+
+    </script>
+
+  </body>
+</html>
