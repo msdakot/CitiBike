@@ -44,6 +44,12 @@ var polyPopUp = function(feature) {
     return(thePopup);
 };
 
+
+var read = function() {
+  var inputs = {NeighVal : $('#toPlot').val()};
+  return inputs.NeighVal;
+};
+
 /* =====================
 State object
 ===================== */

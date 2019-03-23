@@ -13,22 +13,21 @@ var slide3text = "Over the past, most of the round trips: starting and ending at
 distibution can be the network connectivity. These boros are mostly residential and had less expanded network of bikes and Point of intrets. \  ";
 
 var slide4text = `
-  <p> "This map shows the aggregated travel behavior at Neighborhood scale. <br><br> You can choose any boro's name from the drop down menu to zoom in at that level and play around with stat pop-ups" </p>
-  <p>
-    <select class="coord" id="coord-y">
-              <option value="" class="auto" disabled selected>Neighborhood</option>
-              <option value="boro_name">Brooklyn</option>
-              <option value="boro_name">Queens</option>
-              <option value="boro_name">Manhattan</option>
-              <option value="boro_name">Staten Island</option>
-              <option value="boro_name">Bronx</option>
+  <p> "This map shows the aggregated travel behavior at Neighborhood scale. \
+  <br><br> You can choose any boro's name from the drop down menu to zoom in at that level and play around with stat pop-ups." <br><br><br> </p>
+    <select class="dropDown" id="toPlot">
+              <option value="" class="auto" disabled selected>visualize..</option>
+              <option value="Total Trips">Total Trips</option>
+              <option value="Docks">Docks</option>
+              <option value="Inbound">Inbound Trips</option>
+              <option value="Outbound">Outbound Trips</option>
     </select>
-  <p>
+    <button id="mapbutton">Map</button>
+    <button id="mapbutton2">Clear</button>
   `;
 
 var slide5text = `
 <p> "text" </p>
 <button>this button</button>
 <input type="text"/>
-
 `;
